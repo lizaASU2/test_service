@@ -20,8 +20,8 @@ application = Flask(__name__)
 
 
 #загружаем модели из файла
-vec = pickle.load(open("./models/tfidf.pickle", "rb"))
-model = lgb.Booster(model_file='./models/lgbm_model.txt')
+vec = pickle.load(open("./tfidf.pickle", "rb"))
+model = lgb.Booster(model_file='./lgbm_model.txt')
 
 
 # тестовый вывод
