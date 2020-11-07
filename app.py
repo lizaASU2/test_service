@@ -31,7 +31,7 @@ def registration():
         
         #category = model.predict(vec.transform([json_params['user_message']]).toarray()).tolist()
         result=md.predict(vec.transform([json_params['user_message']]))[0]
-        resp['category'] = category
+        resp['category'] = result
     except Exception as e: 
         print(e)
         resp['message'] = e
