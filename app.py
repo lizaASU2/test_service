@@ -46,7 +46,7 @@ def hello():
 @application.route("/categoryPrediction", methods=['GET', 'POST'])  
 def registration():
     resp = {'message':'ok'
-           ,'category': -1
+           ,'question_text': 'error'
            }
 
     try:
