@@ -45,22 +45,20 @@ def hello():
 # предикт категории
 @application.route("/categoryPrediction", methods=['GET', 'POST'])  
 def registration():
-    resp = {'message':'ok'
-           ,'question_text': 'error'
-           }
+    #resp = {'message':'ok'
+          # ,'question_text': 'error'
+          # }
 
     try:
         getData = request.get_data()
         json_params = json.loads(getData) 
-        
-        #category = model.predict(vec.transform([json_params['user_message']]).toarray()).tolist()
         result=md.predict(vec.transform([json_params['user_message']]))
         resp['question_text'] = json_params['user_message']
         resp['named_entities'] =named_entities(annotate_text(resp['question_text']))
         resp['relation'] = result[0]
-    except Exception as e: 
-        print(e)
-        resp['message'] = e
+    #except Exception as e: 
+        #print(e)
+        #resp['message'] = e
       
     response = jsonify(resp)
     
